@@ -8,7 +8,25 @@
 
 # Tell your user the answer
 
+hints = ["This is an amphibian\n", "This has green skin\n", "This animals ribbits around\n"]
+
 print("Welcome to the AMAZING DIGITAL GUESSING GAME!")
+print("(Not derivative)")
+name = input("But first, what's your name?\n")
+print(f"Good to meet you {name}. My name is staff.")
+print("Okay, your first hint!!!")
+answered = False
+
+for x in hints:
+    if not answered:
+        guess = input(x).upper()
+        if guess == "FROG":
+            print("That is correct!!! Good job!")
+            answered = True
+
+if not answered:
+    print("The correct answer was a frog.")
+
 
 # ------------------------------
 
