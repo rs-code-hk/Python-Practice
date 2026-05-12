@@ -73,5 +73,5 @@ for x in rounds:
     x.askQuestion()
 
 # Conclusion
-print(f"{name}, out of {len(rounds)} questions, you answered {points} correctly! That's a {points / len(rounds)}% success rate!")
+print(f"{name}, out of {len(rounds)} questions, you answered {points} correctly! That's a {points / len(rounds) * 100}% success rate!")
 print(f"Thank you for playing. Everyone in the crowd, give it up for {name}.")
