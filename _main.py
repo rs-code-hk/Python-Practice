@@ -1,2 +1,4 @@
-age = input("Age?")
-print("Birth year:", 2026 - int(age))
+if 10 != 10:
+    print("hello")
+
+print("goodbye")
