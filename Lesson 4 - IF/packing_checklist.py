@@ -84,13 +84,13 @@ for i in packList:
 # Packing loop
 while [any, False] not in displayList:
     # Print all items
-    for i in displayList:
-        if i[1] == False:
-            print(f"O - {i[0]}")
+    for i in range(len(displayList)):
+        if displayList[i][1]== False:
+            print(f"O - {displayList[i][0]}")
         else:
-            print(f"X - {i[0]}")
+            print(f"X - {displayList[i][0]}")
 
     packedItem = input("What item have you packed?\n")
-    for i in displayList:
-        if i == [packedItem, False]:
-            i = [packedItem, True]
+    for i in range(len(displayList)):
+        if displayList[i] == [packedItem, False]:
+            displayList[i] = [packedItem, True]
