@@ -7,14 +7,21 @@
 # You can base this on the picture from last lesson, but make it simpler - 
 # 3 questions and 4 animals.
 
+# Get question variables
 notFinishedQuestion = True
 outside = ""
 meat = ""
 level = ""
+
+# First Questions
 while notFinishedQuestion:
     outside = input("Do you prefer to be outside or inside?\n").upper()
     if outside in ["OUTSIDE", "INSIDE"]:
         notFinishedQuestion = False
+    else:
+        print("Please answer with outside or inside")
+
+    # If not either of the answers, repeat question
 
 notFinishedQuestion = True
 while notFinishedQuestion:

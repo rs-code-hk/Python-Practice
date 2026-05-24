@@ -20,7 +20,7 @@ pluralPronouns = False
 print("The next section is about pronouns. Roll on pronouns currently aren't supported, sorry!")
 validPronouns = False
 while validPronouns == False:
-    pronouns = input("What are your preferred pronouns? (Yes I am going overboard).\nUse all 4 (e.g. He/Him/His/Himself)\n").lower().split("/")
+    pronouns = input("What are your preferred pronouns? (Yes I am going overboard).\nUse all 4 (e.g. He/Him/His/Himself)\n").lower().replace(" ", "").split("/")
     if pronouns.__len__() == 4:
         validPronouns = True
     else:
