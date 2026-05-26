@@ -1,2 +1,5 @@
-if 'HELLO'.lower() == 'hello':
-    print('The same!')
+import time
+
+print("1")
+time.sleep(1)
+print("2")

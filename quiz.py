@@ -12,7 +12,7 @@ print("Welcome to the 'Ultimate Quiz'! This will ask about random stuff from any
 
 # Getting player information and setting up other data
 points = 0 # How many questiosn has the player answered correctly
-name = input("What your name?\n").capitalize()
+name = input("What your name?\n").capitalize().strip()
 pronouns = []
 pluralPronouns = False
 
@@ -26,7 +26,7 @@ while validPronouns == False:
     else:
         print("Please input exactly 4 pronouns")
 
-if input("Are your pronouns plural? ('_ are' instead of '_ is'). Any answer except for yes will be assumed to be a no.\n").upper() == "YES":
+if input("Are your pronouns plural? ('_ are' instead of '_ is'). Any answer except for yes will be assumed to be a no.\n").upper().strip() == "YES":
     pluralPronouns = True
 
 # Finish introduction
@@ -55,7 +55,7 @@ class gameRound():
         for i in self.asciiArt:
             print(i)
 
-        answer = input(self.question).upper()
+        answer = input(self.question).upper().strip()
         if answer in self.answers:
             points += 1
             print(self.interim[0])
@@ -68,7 +68,7 @@ class gameRound():
 ASCII_ART = [
     ["       _", "     _|=|__________", "    /              \\", "   /                \\", "  /__________________\\", "   ||  || /--\ ||  ||", "   ||[]|| | .| ||[]||", " ()||__||_|__|_||__||()", "( )|-|-|-|====|-|-|-|( ) ", "^^^^^^^^^^====^^^^^^^^^^^"],
     ["  _", " (_)", "<___>", " | |______", " | |* * * )", " | | * * (_________", " | |* * * |* *|####)", " | | * * *| * |   (________________", " | |* * * |* *|####|##############|", " | | * * *| * |    |              |", " | |* * * |* *|####|##############|", " | |~~~~~~| * |    |              |", " | |######|* *|####|##############|", " | |      |~~~'    |              |", " | |######|########|##############|", " | |      |        |              |", " | |######|########|##############|", " | |~~~~~~|        |              |", " | |      |########|##############|", " | |      '~~~~~~~~|              |", " | |               |##########JGS#|", " | |               '~~~~~~~~~~~~~~~", " | |", " | |", " | |"],
-    ["              |))    |))", " .             |  )) /   ))", " \\\\   ^ ^      |    /      ))", "  \\\\(((  )))   |   /        ))", "   / G    )))  |  /        ))", "  |o  _)   ))) | /       )))", "   --' |     ))`/      )))", "    ___|              )))", "   / __\             ))))`()))", "  /\@   /             `(())))", "  \/   /  /`_______/\   \  ))))", "       | |          \ \  |  )))", "       | |           | | |   )))", "       |_@           |_|_@    ))", "      /_/           /_/_/"],
+    ["               |))    |))", " .             |  )) /   ))", " \\\\   ^ ^      |    /      ))", "  \\\\(((  )))   |   /        ))", "   / G    )))  |  /        ))", "  |o  _)   ))) | /       )))", "   --' |     ))`/      )))", "    ___|              )))", "   / __\             ))))`()))", "  /\@   /             `(())))", "  \/   /  /`_______/\   \  ))))", "       | |          \ \  |  )))", "       | |           | | |   )))", "       |_@           |_|_@    ))", "      /_/           /_/_/"],
     ["temp"],
     ["temp"],
     ["temp"]
