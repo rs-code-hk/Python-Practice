@@ -1,5 +1,1 @@
-import time
-
-print("1")
-time.sleep(1)
-print("2")
+print("Line 1\n line 2")
