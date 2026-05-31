@@ -1,12 +1,12 @@
 import random
 
-bossTitle = ["Lord of chaos", "Battery sold seperately", "FDA approved", "Lawman for hire", "R18 (Gore)", "DM's favourite child", "Employee of the month", "Registered trademark of Hydranger Co", "Survivor of 7/11", "1000 hours in weather.com", "Lord of Reddit", "Average basement dweller", "Tacos?"]
+bossTitle = ["Lord of chaos", "Battery sold seperately", "FDA approved", "Lawman for hire", "R18 (Gore)", "DM's favourite child", "Employee of the month", "Registered trademark of Hydranger Co", "Survivor of 7/11", "1000 hours in weather.com", "Lord of Reddit", "Average basement dweller", "Tacos?", "The Barbie", "The arrow approves"]
 
-playerHealth = 50.0
-playerPotions = 5
-playerArrows = 10
+playerHealth = 50
+playerPotions = 4
+playerArrows = 7
 
-bossHealth = 100.0
+bossHealth = 100
 
 while bossHealth > 0 and playerHealth > 0:
     print(f"You have {playerHealth/50*100}% health")

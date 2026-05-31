@@ -1,3 +1,17 @@
+import yaml
+
+def sortBoard(e):
+    return e["SCORE"]
+
+leaderboard = []
+with open("leaderboard.yaml") as f:
+    leaderboard = yaml.safe_load(f)["leaderboard"]
+
+# Sort leaderboard
+if leaderboard is None:
+    leaderboard = []
+leaderboard.sort(key = sortBoard, reverse = True)
+
 # Functions to change questions based on pronouns
 def pluralGrammar(nonPlural, plural):
     if pluralPronouns:
@@ -44,6 +58,7 @@ class gameRound():
     asciiArt = []
 
     def __init__(self, inQuestion, inAnswers, inInterim, inAsciiArt):
+        # Ran when creating question
         self.question = inQuestion
         self.answers = inAnswers
         self.interim = inInterim
@@ -62,32 +77,76 @@ class gameRound():
         else:
             print(self.interim[1])
 
-        input(f"{name} has now scored {points} points! {pronouns[0].capitalize()} {pluralGrammar("is", "are")} well on {pronouns[1]} way to completing the quiz. Hit enter/return to continue.\n")
+        input(f"{name} has now scored {points} points! {pronouns[0].capitalize()} {pluralGrammar("is", "are")} well on {pronouns[1]} way to completing the quiz. \nHit enter/return to continue.\n")
 
 # Create Ascii art printed before every round
 ASCII_ART = [
     ["       _", "     _|=|__________", "    /              \\", "   /                \\", "  /__________________\\", "   ||  || /--\ ||  ||", "   ||[]|| | .| ||[]||", " ()||__||_|__|_||__||()", "( )|-|-|-|====|-|-|-|( ) ", "^^^^^^^^^^====^^^^^^^^^^^"],
     ["  _", " (_)", "<___>", " | |______", " | |* * * )", " | | * * (_________", " | |* * * |* *|####)", " | | * * *| * |   (________________", " | |* * * |* *|####|##############|", " | | * * *| * |    |              |", " | |* * * |* *|####|##############|", " | |~~~~~~| * |    |              |", " | |######|* *|####|##############|", " | |      |~~~'    |              |", " | |######|########|##############|", " | |      |        |              |", " | |######|########|##############|", " | |~~~~~~|        |              |", " | |      |########|##############|", " | |      '~~~~~~~~|              |", " | |               |##########JGS#|", " | |               '~~~~~~~~~~~~~~~", " | |", " | |", " | |"],
     ["               |))    |))", " .             |  )) /   ))", " \\\\   ^ ^      |    /      ))", "  \\\\(((  )))   |   /        ))", "   / G    )))  |  /        ))", "  |o  _)   ))) | /       )))", "   --' |     ))`/      )))", "    ___|              )))", "   / __\             ))))`()))", "  /\@   /             `(())))", "  \/   /  /`_______/\   \  ))))", "       | |          \ \  |  )))", "       | |           | | |   )))", "       |_@           |_|_@    ))", "      /_/           /_/_/"],
-    ["temp"],
-    ["temp"],
-    ["temp"]
+    [""],
+    [""],
+    [""]
 ]
 
 # Make list of every round
 ROUNDS = [
     gameRound(f"Now, {name}, your first question. What is the tallest building in the world?\n", ["BURJ KHALIFA", "THE BURJ KHALIFA", "DEBUG"], [f"That answer is correct! {name} has earned {pronouns[3]} another point!", f"Sorry {name}, that is incorrect. The correct answer is 'The Burj Khalifa'."], ASCII_ART[0]),
     gameRound(f"{name}, prepare for your second question. In North Carolina, what game is it illegal to play for six hours?\n", ["BINGO"], [f"That is correct. What a wierd law huh. Do you have any experience with it {name}?", f"That is incorrect, the answer is bingo. Honestly the real question is who is playing bingo for six hours straight."], ASCII_ART[1]),
-    gameRound(f"The third question! In greek mythology, who was described as having 'A face that launched a thousand ships?'\n", ["HELEN", "HELEN OF TROY"], ["That is correct! You know your myths huh!", f"Nope! It was Helen of Troy. Everyone boo {pronouns[1]} for not knowing about greek mythology, BOOO!"], ASCII_ART[2]),
-    gameRound(f"Let's see how {name} does at a science question! Humans have 1 pair of sex chromosones. How many do platypus have?\n", ["FIVE", "5"], ["Good job! That is the correct answer.", f"No, that is incorrect. The correct answer is 5. Better luck next time {name}"], ASCII_ART[3]),
-    gameRound(f"Here's your fifth question, good luck {name}! X raised to the power of X equals 4 raised to the power of 1024. What is X?\n", ["256", "TWO HUNDRED AND FIFTY SIX"], [f"Correct! Fun fact, this question is on the SAT in America. Did you have to take the SAT {name}?", "No, the correct answer is 256! Sorry, the math was probably to hard. On with the quiz."], ASCII_ART[4]),
-    gameRound(f"Final question! Can {name} add one final point to {pronouns[1]} total! What programming language was Tetris originally made in?\n", ["C"], ["Correct! An amazing ending to the run. Let's see how well you did.", "Incorrect, the correct answer is C. That is an unfortunate end. Let's see how the run went."], ASCII_ART[5])
+    gameRound(f"The third question! In greek mythology, who was described as having \n'A face that launched a thousand ships?'\n", ["HELEN", "HELEN OF TROY"], ["That is correct! You know your myths huh!", f"Nope! It was Helen of Troy. Everyone boo {pronouns[1]} for not knowing about greek mythology, BOOO!"], ASCII_ART[2]),
+    gameRound(f"Let's see how {name} does at a science question! Humans have 1 pair of sex chromosones. \nHow many do platypus have?\n", ["FIVE", "5"], ["Good job! That is the correct answer.", f"No, that is incorrect. The correct answer is 5. Better luck next time {name}"], ASCII_ART[3]),
+    gameRound(f"Here's your fifth question, good luck {name}! \nX raised to the power of X equals 4 raised to the power of 1024. What is X?\n", ["256", "TWO HUNDRED AND FIFTY SIX"], [f"Correct! Fun fact, this question is on the SAT in America. Did you have to take the SAT {name}?", "No, the correct answer is 256! Sorry, the math was probably to hard. On with the quiz."], ASCII_ART[4]),
+    gameRound(f"Final question! Can {name} add one final point to {pronouns[1]} total! \nWhat programming language was Tetris originally made in?\n", ["C"], ["Correct! An amazing ending to the run. Let's see how well you did.", "Incorrect, the correct answer is C. That is an unfortunate end. Let's see how the run went."], ASCII_ART[5])
 ]
 
 # Run questions
 for x in ROUNDS:
+    # Ask question
+    print("")
+    print(f"Question {[i for i, j in enumerate(ROUNDS) if j == x][0] + 1}")
+    print("--------------------")
     x.askQuestion()
 
 # Conclusion
 print(f"{name}, out of {len(ROUNDS)} questions, you answered {points} correctly! That's a {points / len(ROUNDS) * 100}% success rate!")
 print(f"Thank you for playing. Everyone in the crowd, give it up for {name}.")
+
+# Print leaderboard
+if len(leaderboard) == 0:
+    print("Nobody is on the leaderboards")
+else:
+    print("Leaderboard \n--------------------")
+    for i in leaderboard:
+        print(f"{i["PLAYER"]} - {i["SCORE"]} points")
+
+# Ask if player wants to be on leaderboards
+onBoards = None
+
+while onBoards == None:
+    getOnBoards = input("Would you like to be on the leaderboards?\n").strip().upper()
+
+    # If player wants to be on boards
+    if getOnBoards in ["YES", "TRUE"]:
+        onBoards = True
+    
+    # If player doesn't want to be on boards
+    elif getOnBoards in ["NO", "FALSE"]:
+        onBoards = False
+    
+    else:
+        print("Please respond yes or no")
+
+# If they want to be, add player to leaderboards
+if onBoards:
+    leaderboard.append({"PLAYER": name, "SCORE": points})
+
+    # Resort and reprint boards
+    leaderboard.sort(key = sortBoard, reverse = True)
+    print("New leaderboard \n--------------------")
+    for i in leaderboard:
+        print(f"{i["PLAYER"]} - {i["SCORE"]} {"point" if i["SCORE"] == 1 else "points"}")
+
+    # Save boards
+    dumpBoards = {"leaderboard": leaderboard}
+    with open("leaderboard.yaml", "w") as f:
+        yaml.dump(dumpBoards, f, indent=4)
