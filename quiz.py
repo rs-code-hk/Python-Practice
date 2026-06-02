@@ -1,4 +1,7 @@
 import yaml
+import os
+
+os.system("cls")
 
 def sortBoard(e):
     return e["SCORE"]
@@ -72,7 +75,7 @@ class gameRound():
         for i in self.asciiArt:
             print(i)
 
-        answer = input(self.question).upper().strip()
+        answer = input(self.question).upper().strip().replace("/", "").replace("\\", "")
         if answer in self.answers:
             points += 1
             print(self.interim[0])
@@ -93,11 +96,11 @@ ASCII_ART = [
 
 # Make list of every round
 ROUNDS = [
-    gameRound(f"Now, {name}, your first question. What is the tallest building in the world?\n", ["BURJ KHALIFA", "THE BURJ KHALIFA", "DEBUG"], [f"That answer is correct! {name} has earned {pronouns[3]} another point!", f"Sorry {name}, that is incorrect. The correct answer is 'The Burj Khalifa'."], ASCII_ART[0]),
+    gameRound(f"Now, {name}, your first question. What is the tallest building in the world?\n", ["BURJ KHALIFA", "THE BURJ KHALIFA"], [f"That answer is correct! {name} has earned {pronouns[3]} another point!", f"Sorry {name}, that is incorrect. The correct answer is 'The Burj Khalifa'."], ASCII_ART[0]),
     gameRound(f"{name}, prepare for your second question. In North Carolina, what game is it illegal to play for six hours?\n", ["BINGO"], [f"That is correct. What a wierd law huh. Do you have any experience with it {name}?", f"That is incorrect, the answer is bingo. Honestly the real question is \nwho is playing bingo for six hours straight."], ASCII_ART[1]),
     gameRound(f"The third question! In greek mythology, who was described as having \n'A face that launched a thousand ships?'\n", ["HELEN", "HELEN OF TROY"], ["That is correct! You know your myths huh!", f"Nope! It was Helen of Troy. \nEveryone boo {pronouns[1]} for not knowing about greek mythology, BOOO!"], ASCII_ART[2]),
     gameRound(f"Let's see how {name} does at a science question! Humans have 1 pair of sex chromosones. \nHow many do platypus have?\n", ["FIVE", "5"], ["Good job! That is the correct answer.", f"No, that is incorrect. The correct answer is 5. \nBetter luck next time {name}"], ASCII_ART[3]),
-    gameRound(f"Here's your fifth question, good luck {name}! \nX raised to the power of X equals 4 raised to the power of 1024. What is X?\n", ["256", "TWO HUNDRED AND FIFTY SIX"], [f"Correct! Fun fact, this question is on the SAT in America. \nDid you have to take the SAT {name}?", "No, the correct answer is 256! Sorry, the math was probably to hard. \nOn with the quiz."], ASCII_ART[4]),
+    gameRound(f"Here's your fifth question, good luck {name}! \nX raised to the power of X equals 4 raised to the power of 1024. What is X? (x^x = 4^1024)\n", ["256", "TWO HUNDRED AND FIFTY SIX"], [f"Correct! Fun fact, this question is on the SAT in America. \nDid you have to take the SAT {name}?", "No, the correct answer is 256! Sorry, the math was probably to hard. \nOn with the quiz."], ASCII_ART[4]),
     gameRound(f"Final question! Can {name} add one final point to {pronouns[1]} total! \nWhat programming language was Tetris originally made in?\n", ["C"], ["Correct! An amazing ending to the run. Let's see how well you did.", "Incorrect, the correct answer is C. That is an unfortunate end. \nLet's see how the run went."], ASCII_ART[5])
 ]
 
@@ -125,8 +128,12 @@ else:
 onBoards = None
 
 while onBoards == None:
-    temp = input("Would you like to be on the leaderboards?\n").strip().upper()
-    onBoards = True if temp in ["YES", "TRUE"] else False if temp in ["NO", "FALSE"] else None, 
+    match input("Would you like to be on the leaderboards?\n").strip().upper():
+        case "YES" | "TRUE":
+            onBoards = True
+
+        case "NO" | "FALSE":
+            onBoards = False
     
     if onBoards is None:
         print("Please respond yes or no")
