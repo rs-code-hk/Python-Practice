@@ -68,8 +68,11 @@
 # EXPERT
 # Mastermind Version:
 # Add a part that lets you check each digit (you'll need to use split()) and tells the user how many digits are correct in their guess
-correctCombo = 742
+import random
+
+correctCombo = random.randint(100, 999)
 attempts = 0
+MAX_ATTEMPTS = 15
 print("Welcome Mr Bond, Mr White's goons are on the way, you must steal the P.L.O.T device. It is a 3 digit code")
 print("If you type 'exit', then the program will exit")
 
@@ -84,6 +87,9 @@ while True:
     except:
         print("Error: Safe only accepts numbers")
     else:
+        if attempts == MAX_ATTEMPTS:
+            break
+
         attempts += 1
         if guess == correctCombo:
             break
@@ -91,9 +97,9 @@ while True:
             print("Incorrect")
             correctGuesses = 0
             
-            tempCorrectGuess = str(correctCombo).split("")
+            tempCorrectGuess = list(str(correctCombo))
             tempCorrectGuess = list(map(int, tempCorrectGuess))
-            tempGuess = str(tempGuess).split("")
+            tempGuess = list(str(guess))
             tempGuess = list(map(int, tempGuess))
             for i in tempGuess:
                 if tempCorrectGuess.__contains__(i):
@@ -102,5 +108,12 @@ while True:
 
             print(f"You got {correctGuesses} numbers correct")
 
+if attempts == MAX_ATTEMPTS:
+    print("Mr white's men have caught you.")
+    print(f"The number is {correctCombo}")
+elif attempts == -1:
+    print("You have exited the game")
+else:
+    print(f"You escaped in {attempts} attempts")
 
 print("\n--- Game Over ---")
