@@ -1,4 +1,3 @@
-import random
-
-for x in range(10):
-    print(str(random.random()))
+foods = ['apples','carrots','muesli']
+for i, j in enumerate(foods):
+    print(f"{i + 1}.{j.capitalize()}")
