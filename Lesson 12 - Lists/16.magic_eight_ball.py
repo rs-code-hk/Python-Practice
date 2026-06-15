@@ -44,8 +44,9 @@ while True:
     # OR
     if input("What is your question?\n").strip().upper() == "EXIT":
         break
-
-    x = random.random(); print(f"Magic Eight Ball: {random.choice(rareResponses if x > 0.8 else commonResponses)}"); del x
+    
+    chance = random.random()
+    print(f"Magic Eight Ball: {random.choice(rareResponses if chance > 0.8 else commonResponses)}")
 
 # TODO Say goodbye to let them know the program has ended.
 print("Goodbye")

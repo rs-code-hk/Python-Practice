@@ -1,3 +1,7 @@
-foods = ['apples','carrots','muesli']
-for i, j in enumerate(foods):
-    print(f"{i + 1}.{j.capitalize()}")
+
+test2 = 2
+def printTest():
+    print(globals()["test"])
+
+test = "1"
+printTest()
