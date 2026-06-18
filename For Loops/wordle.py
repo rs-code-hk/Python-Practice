@@ -52,43 +52,46 @@
 
 import random
 
-words = ["BACON", "INPUT", "MATHS", "AUDIO", "CRATE"]
-guess = ""
-attempts = 6
-answer = random.choice(words)
+def main():
+    words = ["BACON", "INPUT", "MATHS", "AUDIO", "CRATE"]
+    guess = ""
+    attempts = 6
+    answer = random.choice(words)
 
-print("This is wordle. Guess a five letter word, and see what letters are correct.")
-print("Green is right spot, right letter. Yellow is right letter, wrong spot. Red is completely wrong.")
+    print("This is wordle. Guess a five letter word, and see what letters are correct.")
+    print("Green is right spot, right letter. Yellow is right letter, wrong spot. Red is completely wrong.")
 
-while guess != answer and attempts != 0:
-    print(f"You have {attempts} guesses left")
-    guess = input("What word would you like to guess?\n").upper().strip()
+    while guess != answer and attempts != 0:
+        print(f"You have {attempts} guesses left")
+        guess = input("What word would you like to guess?\n").upper().strip()
 
-    if len(guess) == 5:
-        if guess == answer:
-            break
-        guessInfo = []
-        for x in range(5):
-            if guess[x] == answer[x]:
-                guessInfo.append("32")
+        if len(guess) == 5:
+            if guess == answer:
+                break
+            guessInfo = []
+            for x in range(5):
+                if guess[x] == answer[x]:
+                    guessInfo.append("32")
 
-            elif guess[x] in answer:
-                guessInfo.append("38;2;255;165;0")
+                elif guess[x] in answer:
+                    guessInfo.append("38;2;255;165;0")
 
-            else:
-                guessInfo.append("31")
-            
-        returnGuess = []
-        for x in range(5):
-            returnGuess.append(f"\033[{guessInfo[x]}m{guess[x]}\033[0m")
+                else:
+                    guessInfo.append("31")
+                
+            returnGuess = []
+            for x in range(5):
+                returnGuess.append(f"\033[{guessInfo[x]}m{guess[x]}\033[0m")
 
-        print("".join(returnGuess))
-        attempts -= 1
+            print("".join(returnGuess))
+            attempts -= 1
 
+        else:
+            print("Please input exactly 5 letters")
+
+    if attempts == 0:
+        print(f"You didn't get it, lol. The answer was {answer}")
     else:
-        print("Please input exactly 5 letters")
+        print(f"You got it in {6 - attempts} guesses")
 
-if attempts == 0:
-    print(f"You didn't get it, lol. The answer was {answer}")
-else:
-    print(f"You got it in {6 - attempts} guesses")
+main()
