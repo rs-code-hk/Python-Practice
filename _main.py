@@ -1,7 +1,8 @@
-def test1():
-    def test2():
-        print("Hello!")
+def check_play():
+    play = input("Do you want to play again")
+    if play.lower() in ["y", "yes"]:
+        return True
+    else:
+        return False
 
-    test2()
-
-test1()
+print(check_play())
