@@ -21,7 +21,15 @@ forSale = {
     "GUN OF IMMACULATE ACCURACY": item(50, "Always hits the closest thing to it"),
     "HAMSTER OF WORLD DEVOURING": item(1, "The hamster that must destroy the world. PLS BUY THIS. I AM VERY SCARED."),
     "BAG OF HOLDING": item(20, "Unfortunately it's full of air"),
-    "BAG OF WITHOLDING": item(20, "It witholds any items you put in it")
+    "BAG OF WITHOLDING": item(20, "It witholds any items you put in it"),
+    "MOVEABLE ROD": item(1, "Literally just a metal rod"),
+    "PLANE CUBE": item(30, "Summons planes"),
+    "ROD OF IRONY": item(10, "A fishing rod that can only fish up more rods of irony"),
+    "BABBLE FISH": item(5, "Makes any language sound like pure gibberish"),
+    "HITCHIKER'S GUIDE TO THE GALAXY": item(10, "It's mostly harmless"),
+    "101 FISH JOKES": item(0, "101 fish jokes? Really? My ancestors have worked for centuries to gather these treasures of knowledge and preserve them within these walls so our race will be respected for intellectual achievement, and you want fish jokes?"),
+    "MEOWMERE": item(50, "It's a cat sword. No idea how it ended up here"),
+    "PYRITE PARROT": item(0, "Bawk, it's me, Guybrush Threepwood, mighty pirate!")
 }
 print("This is a item shop. Buy your favourite, totally not cursed items here.")
 print("Type exit to exit")
