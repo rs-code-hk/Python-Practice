@@ -7,7 +7,7 @@
 import random
 
 def checkSet(set):
-    if "".join(set) in ["123", "321"]:
+    if "".join(set) in ["123", "321", "111", "222", "333"]:
         return 1
     return 0
 
