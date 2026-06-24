@@ -1,15 +1,17 @@
 import yaml
-import pickle
 import os
 from quizDatMaker import *
 
+LEADERBOARD_PATH = "Quiz/leaderboard.yaml"
+
+# Clear the random system stuff that's clogging the console
 os.system("cls")
 
 def sortBoard(e):
     return e["SCORE"]
 
 leaderboard = []
-with open("leaderboard.yaml") as f:
+with open(LEADERBOARD_PATH) as f:
     leaderboard = yaml.safe_load(f)["leaderboard"]
 
 # Check if leaderboard is none, set to list
@@ -129,5 +131,5 @@ if onBoards:
 
     # Save boards
     dumpBoards = {"leaderboard": leaderboard}
-    with open("leaderboard.yaml", "w") as f:
+    with open(LEADERBOARD_PATH, "w") as f:
         yaml.dump(dumpBoards, f, indent=4)

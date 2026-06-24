@@ -10,16 +10,42 @@ class item():
         self.gold = inGold
         self.desc = inDesc
 
+    def __str__(self):
+        return f"{self.desc} - Costs {self.gold} gold"
+
 gold = 50
 forSale = {
-    "Sword": item(10, "A basic longsword"),
-    "Sword of Danger Detection": item(5, "Of course it's always glowing, swords are sharp!"),
-    "Ring of Fire Detection": item(10, "A fire distinguisher (Range: Touch)"),
-    "Gun of Immaculate Accuracy": item(50, "Always hits the closest thing to it"),
-    "Hamster of World Devouring": item(1, "The hamster that must destroy the world. PLS BUY THIS. I AM VERY SCARED."),
-    "Bag of Holding": item(20, "Unfortunately it's full of air"),
-    "none": None
+    "SWORD": item(10, "A basic longsword"),
+    "SWORD OF DANGER DETECTION": item(5, "Of course it's always glowing, swords are sharp!"),
+    "RING OF FIRE DETECTION": item(10, "A fire distinguisher (Range: Touch)"),
+    "GUN OF IMMACULATE ACCURACY": item(50, "Always hits the closest thing to it"),
+    "HAMSTER OF WORLD DEVOURING": item(1, "The hamster that must destroy the world. PLS BUY THIS. I AM VERY SCARED."),
+    "BAG OF HOLDING": item(20, "Unfortunately it's full of air"),
+    "BAG OF WITHOLDING": item(20, "It witholds any items you put in it")
 }
+print("This is a item shop. Buy your favourite, totally not cursed items here.")
+print("Type exit to exit")
+while True:
+    print(f"You have {gold} gold left")
+    for i in forSale:
+        print(f"{i.lower().capitalize()} - {str(forSale[i])}")
+
+    purchase = input("What would you like to buy?\n").strip().upper()
+    if purchase.upper() == "EXIT":
+        print("I hope you had a nice shopping trip")
+        break
+
+    try:
+        getItem = forSale[purchase]
+        if gold >= getItem.gold:
+            print(f"You bought a {purchase.lower().capitalize()}")
+            gold -= getItem.gold
+            del forSale[purchase]
+
+    except:
+        print("That isn't an item")
+
+
 
 
 
