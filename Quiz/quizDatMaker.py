@@ -31,7 +31,7 @@ class gameRound():
             # Answer incorrect
             print(self.interim[1].format(playerDat["pronouns"][0], playerDat["pronouns"][1], playerDat["pronouns"][2], playerDat["pronouns"][3], playerDat["name"]))
 
-        input(f"{playerDat['name']} has now scored {playerDat["points"]} points! {playerDat["pronouns"][0].capitalize()} {self.pluralGrammar("is", "are")} well on {playerDat["pronouns"][1]} way to completing the quiz. \nHit enter/return to continue.\n")
+        input(f"{playerDat['name']} has now scored {playerDat["points"]} points! {playerDat["pronouns"][0].capitalize()} {self.pluralGrammar("is", "are")} well on {playerDat["pronouns"][2]} way to completing the quiz. \nHit enter/return to continue.\n")
 
         return playerDat
 

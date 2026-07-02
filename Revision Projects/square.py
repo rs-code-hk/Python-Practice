@@ -9,6 +9,8 @@ import random
 def checkSet(set):
     if "".join(set) in ["123", "321", "111", "222", "333"]:
         return 1
+    if int(set[0]) + int(set[1]) + int(set[2]) > 7:
+        return 1
     return 0
 
 def checkGrid(grid):
@@ -52,10 +54,10 @@ for num1 in range(1, 4):
             for num4 in range(1, 4):
                 for num5 in range(1, 4):
                     for num6 in range(1, 4):
-                        for num7 in range(1, 4):
-                            for num8 in range(1, 4):
-                                for num9 in range(1, 4):
-                                    i = list(f"{num1}{num2}{num3}{num4}{num5}{num6}{num7}{num8}{num9}")
+                        #for num7 in range(1, 4):
+                            #for num8 in range(1, 4):
+                                #for num9 in range(1, 4):
+                                    i = list(f"{num1}{num2}{num3}{num4}{3}{num5}{num6}{1}{2}")
                                     numList.append(i)
 
 for i in numList:
